@@ -11,3 +11,5 @@ export const xyCoodinateToXYZTuple: ({ x, y }: IXYCoordinate) => TIlluminant = (
 ];
 
 export const sign = (n: number) => isNaN(n) ? NaN : n > 0 ? 1 : n < 0 ? -1 : 0;
+
+export const helpers = { xyCoodinateToXYZTuple, sign };
