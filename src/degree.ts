@@ -1,4 +1,6 @@
 
+import { IDegreeRadianConverter } from "./types";
+
 const {PI} = Math;
 
 export function fromRadian(r: number) {
@@ -23,4 +25,4 @@ export function toRadian(d: number) {
     return r;
 }
 
-export default { fromRadian, toRadian };
+export const degree: IDegreeRadianConverter = { fromRadian, toRadian };

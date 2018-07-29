@@ -1,11 +1,12 @@
 
 import { illuminants } from "./illuminant";
-import matrix from "./matrix";
-import { IWorkspace, Matrix3D, TIlluminant, Vector3D } from "./types";
+import { matrix } from "./matrix";
+import { IRgbXyzConverter, IWorkspace, Matrix3D, TIlluminant, Vector3D } from "./types";
 import { workspaces } from "./workspace";
 
 // http://www.brucelindbloom.com/Eqn_RGB_XYZ_Matrix.html
-export function Converter(rgbSpace: IWorkspace = workspaces.sRGB, whitePoint: TIlluminant = illuminants.D65) {
+// tslint:disable-next-line:max-line-length
+export function Converter(rgbSpace: IWorkspace = workspaces.sRGB, whitePoint: TIlluminant = illuminants.D65): IRgbXyzConverter {
     const primaries = [rgbSpace.r, rgbSpace.g, rgbSpace.b];
 
     const M_P: Matrix3D = matrix.transpose(primaries.map(({x, y}) => [
@@ -26,11 +27,11 @@ export function Converter(rgbSpace: IWorkspace = workspaces.sRGB, whitePoint: TI
     const M_XYZ_RGB: Matrix3D = matrix.inverse(M_RGB_XYZ) as Matrix3D;
 
     return {
-        fromRgb(RGB: Vector3D) {
+        fromRgb(RGB: Vector3D): Vector3D {
             return matrix.multiply(M_RGB_XYZ, RGB.map(gamma.decode) as Vector3D);
         },
-        toRgb(XYZ: Vector3D) {
-            return matrix.multiply(M_XYZ_RGB, XYZ).map(gamma.encode);
+        toRgb(XYZ: Vector3D): Vector3D {
+            return matrix.multiply(M_XYZ_RGB, XYZ).map(gamma.encode) as Vector3D;
         },
     };
 }

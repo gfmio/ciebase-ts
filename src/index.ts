@@ -1,8 +1,11 @@
 
-export { default as degree } from "./degree";
-export * from "./illuminant";
-export { default as matrix } from "./matrix";
-export { default as rgb } from "./rgb";
 export * from "./types";
+
+export * from "./illuminant";
 export * from "./workspace";
 export * from "./xyz";
+
+export { degree } from "./degree";
+export { matrix } from "./matrix";
+export { rgb } from "./rgb";
+export * from "./helpers";
