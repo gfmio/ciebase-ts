@@ -1,6 +1,6 @@
 {
   "name": "ciebase-ts",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "TypeScript port of ciebase - Basic building blocks for CIE color spaces",
   "author": "Frédérique Mittelstaedt <npm@gfm.io> (https://www.gfm.io)",
   "license": "MIT",
