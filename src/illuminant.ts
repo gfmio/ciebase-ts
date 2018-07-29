@@ -28,5 +28,3 @@ export const illuminants = {
     D65: xyCoodinateToXYZTuple(coordinates.D65), // noon daylight
     D75: xyCoodinateToXYZTuple(coordinates.D75), // north sky daylight
 };
-
-export default illuminants;

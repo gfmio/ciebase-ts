@@ -18,3 +18,5 @@ export function toHex(RGB: [number, number, number]) {
     }).join("");
     return "#" + hex;
 }
+
+export default { fromHex, toHex };

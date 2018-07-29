@@ -3,7 +3,7 @@ import { IColorSpaceEncoder, IWorkspace } from "./types";
 
 const {abs, pow } = Math;
 
-const sign = (n: number) => isNaN(n) ? NaN : n > 0 ? 1 : n < 0 ? -1 : 0;
+export const sign = (n: number) => isNaN(n) ? NaN : n > 0 ? 1 : n < 0 ? -1 : 0;
 
 export const sRgbGamma: IColorSpaceEncoder = {
     decode: (v) => (v <= 0.04045 ? v / 12.92 : pow((v + 0.055) / 1.055, 2.4)),
@@ -52,5 +52,3 @@ export const workspaces: {
         gamma: proPhotoGamma,
     },
 };
-
-export default workspaces;

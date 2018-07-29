@@ -1,18 +1,8 @@
 
-import * as degree from "./degree";
-import * as illuminant from "./illuminant";
-import * as matrix from "./matrix";
-import * as rgb from "./rgb";
-import * as types from "./types";
-import * as workspace from "./workspace";
-import * as xyz from "./xyz";
-
-export {
-    degree,
-    illuminant,
-    matrix,
-    rgb,
-    types,
-    workspace,
-    xyz,
-};
+export { default as degree } from "./degree";
+export * from "./illuminant";
+export { default as matrix } from "./matrix";
+export { default as rgb } from "./rgb";
+export * from "./types";
+export * from "./workspace";
+export * from "./xyz";

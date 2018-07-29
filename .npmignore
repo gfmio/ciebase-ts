@@ -1,7 +1,9 @@
 
 node_modules
+src
 .editorconfig
 .gitignore
 .npmignore
 tslint.json
 yarn.lock
+src

@@ -22,3 +22,5 @@ export function toRadian(d: number) {
     }
     return r;
 }
+
+export default { fromRadian, toRadian };

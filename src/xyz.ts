@@ -1,11 +1,11 @@
 
-import illuminant from "./illuminant";
-import * as matrix from "./matrix";
+import { illuminants } from "./illuminant";
+import matrix from "./matrix";
 import { IWorkspace, Matrix3D, TIlluminant, Vector3D } from "./types";
-import workspace from "./workspace";
+import { workspaces } from "./workspace";
 
 // http://www.brucelindbloom.com/Eqn_RGB_XYZ_Matrix.html
-export function Converter(rgbSpace: IWorkspace = workspace.sRGB, whitePoint: TIlluminant = illuminant.D65) {
+export function Converter(rgbSpace: IWorkspace = workspaces.sRGB, whitePoint: TIlluminant = illuminants.D65) {
     const primaries = [rgbSpace.r, rgbSpace.g, rgbSpace.b];
 
     const M_P: Matrix3D = matrix.transpose(primaries.map(({x, y}) => [
@@ -34,5 +34,3 @@ export function Converter(rgbSpace: IWorkspace = workspace.sRGB, whitePoint: TIl
         },
     };
 }
-
-export default Converter;

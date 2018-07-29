@@ -3,7 +3,7 @@
 
 import { Matrix3D, Vector3D } from "./types";
 
-export function transpose(M: Matrix3D) {
+function transpose(M: Matrix3D) {
     return (
         [[M[0][0], M[1][0], M[2][0]],
          [M[0][1], M[1][1], M[2][1]],
@@ -11,7 +11,7 @@ export function transpose(M: Matrix3D) {
     );
 }
 
-export function determinant(M: Matrix3D) {
+function determinant(M: Matrix3D) {
     return (
         M[0][0] * (M[2][2] * M[1][1] - M[2][1] * M[1][2]) +
         M[1][0] * (M[2][1] * M[0][2] - M[2][2] * M[0][1]) +
@@ -19,7 +19,7 @@ export function determinant(M: Matrix3D) {
     );
 }
 
-export function inverse(M: Matrix3D) {
+function inverse(M: Matrix3D) {
     const c = 1 / determinant(M);
     return (
         [[(M[2][2] * M[1][1] - M[2][1] * M[1][2]) * c, (M[2][1] * M[0][2] - M[2][2] * M[0][1]) * c, (M[1][2] * M[0][1] - M[1][1] * M[0][2]) * c],
@@ -28,7 +28,7 @@ export function inverse(M: Matrix3D) {
     );
 }
 
-export function multiply(M: Matrix3D, v: Vector3D) {
+function multiply(M: Matrix3D, v: Vector3D) {
     return (
         [M[0][0] * v[0] + M[0][1] * v[1] + M[0][2] * v[2],
          M[1][0] * v[0] + M[1][1] * v[1] + M[1][2] * v[2],
@@ -36,7 +36,7 @@ export function multiply(M: Matrix3D, v: Vector3D) {
     );
 }
 
-export function scalar(M: Matrix3D, v: Vector3D) {
+function scalar(M: Matrix3D, v: Vector3D) {
     return (
         [[M[0][0] * v[0], M[0][1] * v[1], M[0][2] * v[2]],
          [M[1][0] * v[0], M[1][1] * v[1], M[1][2] * v[2]],
@@ -44,10 +44,19 @@ export function scalar(M: Matrix3D, v: Vector3D) {
     );
 }
 
-export function product(M: Matrix3D, N: Matrix3D) {
+function product(M: Matrix3D, N: Matrix3D) {
     return (
         [[M[0][0] * N[0][0] + M[0][1] * N[1][0] + M[0][2] * N[2][0], M[0][0] * N[0][1] + M[0][1] * N[1][1] + M[0][2] * N[2][1], M[0][0] * N[0][2] + M[0][1] * N[1][2] + M[0][2] * N[2][2]],
          [M[1][0] * N[0][0] + M[1][1] * N[1][0] + M[1][2] * N[2][0], M[1][0] * N[0][1] + M[1][1] * N[1][1] + M[1][2] * N[2][1], M[1][0] * N[0][2] + M[1][1] * N[1][2] + M[1][2] * N[2][2]],
          [M[2][0] * N[0][0] + M[2][1] * N[1][0] + M[2][2] * N[2][0], M[2][0] * N[0][1] + M[2][1] * N[1][1] + M[2][2] * N[2][1], M[2][0] * N[0][2] + M[2][1] * N[1][2] + M[2][2] * N[2][2]]]
     );
 }
+
+export default {
+    determinant,
+    inverse,
+    multiply,
+    product,
+    scalar,
+    transpose,
+};
