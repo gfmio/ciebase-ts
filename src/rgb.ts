@@ -15,7 +15,7 @@ export function fromHex(hex: string): Vector3D {
 export function toHex(RGB: Vector3D): string {
     const hex = RGB.map((v: number) => {
         const vString: string = round(255 * v).toString(16);
-        return vString.length < 2 ? "0" + v : v;
+        return vString.length < 2 ? "0" + vString : vString;
     }).join("");
     return "#" + hex;
 }
