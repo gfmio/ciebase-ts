@@ -1,11 +1,13 @@
 {
   "name": "ciebase-ts",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "TypeScript port of ciebase - Basic building blocks for CIE color spaces",
-
   "author": "Frédérique Mittelstaedt <npm@gfm.io> (https://www.gfm.io)",
   "license": "MIT",
-
+  "main": "lib/index",
+  "browser": "lib/index.js",
+  "module": "lib/index.mjs",
+  "types": "lib/index.d.ts",
   "scripts": {
     "compile:cjs": "tsc --target es3 --module commonjs",
     "compile:cjs:watch": "tsc -w --target es3 --module commonjs",
@@ -14,7 +16,6 @@
     "compile": "npm-run-all compile:cjs compile:mjs",
     "compile:watch": "npm-run-all -p compile:cjs:watch compile:mjs:watch"
   },
-
   "repository": "github:gfmio/ciebase-ts.git",
   "bugs": "https://github.com/gfmio/ciebase-ts/issues",
   "homepage": "https://github.com/gfmio/ciebase-ts",
@@ -24,7 +25,6 @@
     "cie illuminants",
     "rgb workspaces"
   ],
-
   "dependencies": {},
   "devDependencies": {
     "npm-run-all": "^4.1.3",
